@@ -1,32 +1,29 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-# Set your lab user name
+  # Set your lab user name
   name: fastaca-hello-world
 spec:
   replicas: 3
   selector:
     matchLabels:
-# Set your lab user name
+      # Set your lab user name
       app: fastaca-hello-world
   template:
     metadata:
       labels:
-# Set your lab user name
+        # Set your lab user name
         app: fastaca-hello-world
     spec:
       containers:
-          name: hello-world
+        - name: hello-world
           image: 'quay.io/fastaca/imageshai:v2'
-        - resources: {}
+          resources: {}
           terminationMessagePath: /dev/termination-log
-          name: hello-world
           ports:
             - containerPort: 8080
               protocol: TCP
           imagePullPolicy: IfNotPresent
-# Update with the image you build in part 1
-          image: 'quay.io/fastaca/imageshai:v1'
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
