@@ -16,6 +16,8 @@ spec:
         app: fastaca-hello-world
     spec:
       containers:
+          name: hello-world
+          image: 'quay.io/fastaca/imageshai:v2'
         - resources: {}
           terminationMessagePath: /dev/termination-log
           name: hello-world
